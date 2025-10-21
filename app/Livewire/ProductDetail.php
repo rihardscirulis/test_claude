@@ -18,4 +18,10 @@ class ProductDetail extends Component
     {
         return view('livewire.product-detail')->layout('layouts.app');
     }
+
+    public function getCategoryTranslation($category)
+    {
+        $key = 'category_' . strtolower(str_replace([' ', '&'], ['_', ''], $category));
+        return __('products.' . $key);
+    }
 }

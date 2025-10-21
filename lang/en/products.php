@@ -57,12 +57,22 @@ return [
     'time_since_added' => 'Time Since Added',
     'back_to_all_products' => 'Back to All Products',
 
-    // Categories
-    'electronics' => 'Electronics',
-    'clothing' => 'Clothing',
-    'books' => 'Books',
-    'home_garden' => 'Home & Garden',
-    'sports' => 'Sports',
-    'toys' => 'Toys',
-    'food' => 'Food',
+    // Categories (for display in filters and views)
+    'category_electronics' => 'Electronics',
+    'category_clothing' => 'Clothing',
+    'category_books' => 'Books',
+    'category_home_garden' => 'Home & Garden',
+    'category_sports' => 'Sports',
+    'category_toys' => 'Toys',
+    'category_food' => 'Food',
+
+    // Dashboard
+    'welcome' => 'Welcome to Laravel Product Manager!',
+    'welcome_message' => 'You\'re now logged in and can access all features of this application.',
+    'features' => 'Features',
+    'real_time_search' => 'Real-time search and filtering',
+    'view_modes' => 'Grid and List view modes',
+    'dynamic_sorting' => 'Dynamic sorting and pagination',
+    'price_filters' => 'Price range and category filters',
+    'view_products_button' => 'View Products',
 ];

@@ -35,7 +35,7 @@
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                 <option value="">{{ __('products.all_categories') }}</option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category }}">{{ $category }}</option>
+                                    <option value="{{ $category }}">{{ $this->getCategoryTranslation($category) }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -130,7 +130,7 @@
                                     <div class="mb-3">
                                         <h3 class="font-semibold text-lg text-gray-800 truncate">{{ $product->name }}</h3>
                                         <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded mt-1">
-                                            {{ $product->category }}
+                                            {{ $this->getCategoryTranslation($product->category) }}
                                         </span>
                                     </div>
                                     <p class="text-gray-600 text-sm mb-3 line-clamp-2">{{ $product->description }}</p>
@@ -157,7 +157,7 @@
                                             <div class="flex items-center gap-3 mb-2">
                                                 <h3 class="font-semibold text-xl text-gray-800">{{ $product->name }}</h3>
                                                 <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">
-                                                    {{ $product->category }}
+                                                    {{ $this->getCategoryTranslation($product->category) }}
                                                 </span>
                                                 <span class="text-sm {{ $product->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
                                                     {{ $product->stock > 0 ? __('products.in_stock') . ' (' . $product->stock . ')' : __('products.out_of_stock') }}

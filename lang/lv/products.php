@@ -57,12 +57,22 @@ return [
     'time_since_added' => 'Laiks Kopš Pievienošanas',
     'back_to_all_products' => 'Atpakaļ uz Visiem Produktiem',
 
-    // Categories
-    'electronics' => 'Elektronika',
-    'clothing' => 'Apģērbs',
-    'books' => 'Grāmatas',
-    'home_garden' => 'Mājas un Dārzs',
-    'sports' => 'Sports',
-    'toys' => 'Rotaļlietas',
-    'food' => 'Pārtika',
+    // Categories (for display in filters and views)
+    'category_electronics' => 'Elektronika',
+    'category_clothing' => 'Apģērbs',
+    'category_books' => 'Grāmatas',
+    'category_home_garden' => 'Mājas un Dārzs',
+    'category_sports' => 'Sports',
+    'category_toys' => 'Rotaļlietas',
+    'category_food' => 'Pārtika',
+
+    // Dashboard
+    'welcome' => 'Laipni lūdzam Laravel Produktu Pārvaldniekā!',
+    'welcome_message' => 'Jūs esat pieteicies un varat piekļūt visām šīs lietotnes funkcijām.',
+    'features' => 'Funkcijas',
+    'real_time_search' => 'Reāllaika meklēšana un filtrēšana',
+    'view_modes' => 'Režģa un saraksta skata režīmi',
+    'dynamic_sorting' => 'Dinamiska kārtošana un lapošana',
+    'price_filters' => 'Cenu diapazona un kategoriju filtri',
+    'view_products_button' => 'Skatīt Produktus',
 ];

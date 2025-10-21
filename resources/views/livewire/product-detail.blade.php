@@ -23,7 +23,7 @@
                             <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ $product->name }}</h1>
                             <div class="flex items-center gap-3">
                                 <span class="inline-block px-3 py-1 text-sm bg-blue-100 text-blue-800 rounded-full">
-                                    {{ $product->category }}
+                                    {{ $this->getCategoryTranslation($product->category) }}
                                 </span>
                                 @if($product->is_active)
                                     <span class="inline-block px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full">
@@ -98,7 +98,7 @@
                             <div class="flex justify-between items-center">
                                 <span class="text-gray-600">{{ __('products.category') }}:</span>
                                 <span class="font-semibold text-gray-900">
-                                    {{ $product->category }}
+                                    {{ $this->getCategoryTranslation($product->category) }}
                                 </span>
                             </div>
                             <div class="flex justify-between items-center">

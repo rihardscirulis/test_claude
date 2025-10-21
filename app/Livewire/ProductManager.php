@@ -113,4 +113,10 @@ class ProductManager extends Component
             'categories' => $categories,
         ])->layout('layouts.app');
     }
+
+    public function getCategoryTranslation($category)
+    {
+        $key = 'category_' . strtolower(str_replace([' ', '&'], ['_', ''], $category));
+        return __('products.' . $key);
+    }
 }
