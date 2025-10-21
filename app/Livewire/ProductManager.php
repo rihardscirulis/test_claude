@@ -118,6 +118,6 @@ class ProductManager extends Component
         return view('livewire.product-manager', [
             'products' => $products,
             'categories' => $categories,
-        ]);
+        ])->layout('layouts.app');
     }
 }
