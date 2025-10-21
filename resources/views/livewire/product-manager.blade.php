@@ -1,6 +1,6 @@
 <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ __('Products') }}
+        {{ __('products.products') }}
     </h2>
 </x-slot>
 
@@ -10,8 +10,8 @@
             <div class="p-6 bg-white border-b border-gray-200">
                 <!-- Header -->
                 <div class="mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">Product Manager</h2>
-                    <p class="text-gray-600 mt-1">Browse and filter products dynamically</p>
+                    <h2 class="text-2xl font-bold text-gray-800">{{ __('products.product_manager') }}</h2>
+                    <p class="text-gray-600 mt-1">{{ __('products.browse_filter') }}</p>
                 </div>
 
                 <!-- Filters -->
@@ -19,21 +19,21 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <!-- Search -->
                         <div>
-                            <label for="search" class="block text-sm font-medium text-gray-700 mb-1">Search</label>
+                            <label for="search" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.search') }}</label>
                             <input type="text"
                                    wire:model.live.debounce.300ms="search"
                                    id="search"
-                                   placeholder="Search products..."
+                                   placeholder="{{ __('products.search_placeholder') }}"
                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                         </div>
 
                         <!-- Category Filter -->
                         <div>
-                            <label for="category" class="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                            <label for="category" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.category') }}</label>
                             <select wire:model.live="categoryFilter"
                                     id="category"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <option value="">All Categories</option>
+                                <option value="">{{ __('products.all_categories') }}</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category }}">{{ $category }}</option>
                                 @endforeach
@@ -42,7 +42,7 @@
 
                         <!-- Price Min -->
                         <div>
-                            <label for="priceMin" class="block text-sm font-medium text-gray-700 mb-1">Min Price</label>
+                            <label for="priceMin" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.min_price') }}</label>
                             <input type="number"
                                    wire:model.live.debounce.300ms="priceMin"
                                    id="priceMin"
@@ -53,7 +53,7 @@
 
                         <!-- Price Max -->
                         <div>
-                            <label for="priceMax" class="block text-sm font-medium text-gray-700 mb-1">Max Price</label>
+                            <label for="priceMax" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.max_price') }}</label>
                             <input type="number"
                                    wire:model.live.debounce.300ms="priceMax"
                                    id="priceMax"
@@ -67,38 +67,38 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
                         <!-- Stock Filter -->
                         <div>
-                            <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">Stock Status</label>
+                            <label for="stock" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.stock_status') }}</label>
                             <select wire:model.live="stockFilter"
                                     id="stock"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <option value="">All Items</option>
-                                <option value="in_stock">In Stock</option>
-                                <option value="out_of_stock">Out of Stock</option>
+                                <option value="">{{ __('products.all_items') }}</option>
+                                <option value="in_stock">{{ __('products.in_stock') }}</option>
+                                <option value="out_of_stock">{{ __('products.out_of_stock') }}</option>
                             </select>
                         </div>
 
                         <!-- Sort By -->
                         <div>
-                            <label for="sortField" class="block text-sm font-medium text-gray-700 mb-1">Sort By</label>
+                            <label for="sortField" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.sort_by') }}</label>
                             <select wire:model.live="sortField"
                                     id="sortField"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <option value="name">Name</option>
-                                <option value="price">Price</option>
-                                <option value="category">Category</option>
-                                <option value="stock">Stock</option>
-                                <option value="created_at">Date Added</option>
+                                <option value="name">{{ __('products.name') }}</option>
+                                <option value="price">{{ __('products.price') }}</option>
+                                <option value="category">{{ __('products.category') }}</option>
+                                <option value="stock">{{ __('products.stock') }}</option>
+                                <option value="created_at">{{ __('products.date_added') }}</option>
                             </select>
                         </div>
 
                         <!-- Sort Direction -->
                         <div>
-                            <label for="sortDirection" class="block text-sm font-medium text-gray-700 mb-1">Direction</label>
+                            <label for="sortDirection" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.direction') }}</label>
                             <select wire:model.live="sortDirection"
                                     id="sortDirection"
                                     class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
-                                <option value="asc">Ascending</option>
-                                <option value="desc">Descending</option>
+                                <option value="asc">{{ __('products.ascending') }}</option>
+                                <option value="desc">{{ __('products.descending') }}</option>
                             </select>
                         </div>
                     </div>
@@ -107,11 +107,11 @@
                     <div class="flex justify-between items-center mt-4">
                         <button wire:click="clearFilters"
                                 class="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition">
-                            Clear Filters
+                            {{ __('products.clear_filters') }}
                         </button>
                         <button wire:click="toggleViewMode"
                                 class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition">
-                            {{ $viewMode === 'grid' ? 'List View' : 'Grid View' }}
+                            {{ $viewMode === 'grid' ? __('products.list_view') : __('products.grid_view') }}
                         </button>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                 <!-- Products Display -->
                 <div class="mb-6">
                     <div class="text-sm text-gray-600 mb-4">
-                        Showing {{ $products->count() }} of {{ $products->total() }} products
+                        {{ __('products.showing') }} {{ $products->count() }} {{ __('products.of') }} {{ $products->total() }} {{ __('products.products_text') }}
                     </div>
 
                     @if($viewMode === 'grid')
@@ -137,13 +137,13 @@
                                     <div class="flex justify-between items-center">
                                         <span class="text-2xl font-bold text-indigo-600">${{ number_format($product->price, 2) }}</span>
                                         <span class="text-sm {{ $product->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
-                                            {{ $product->stock > 0 ? 'In Stock (' . $product->stock . ')' : 'Out of Stock' }}
+                                            {{ $product->stock > 0 ? __('products.in_stock') . ' (' . $product->stock . ')' : __('products.out_of_stock') }}
                                         </span>
                                     </div>
                                 </a>
                             @empty
                                 <div class="col-span-full text-center py-12">
-                                    <p class="text-gray-500 text-lg">No products found matching your criteria.</p>
+                                    <p class="text-gray-500 text-lg">{{ __('products.no_products') }}</p>
                                 </div>
                             @endforelse
                         </div>
@@ -160,11 +160,11 @@
                                                     {{ $product->category }}
                                                 </span>
                                                 <span class="text-sm {{ $product->stock > 0 ? 'text-green-600' : 'text-red-600' }}">
-                                                    {{ $product->stock > 0 ? 'In Stock (' . $product->stock . ')' : 'Out of Stock' }}
+                                                    {{ $product->stock > 0 ? __('products.in_stock') . ' (' . $product->stock . ')' : __('products.out_of_stock') }}
                                                 </span>
                                             </div>
                                             <p class="text-gray-600 mb-2">{{ $product->description }}</p>
-                                            <p class="text-xs text-gray-400">Added: {{ $product->created_at->format('M d, Y') }}</p>
+                                            <p class="text-xs text-gray-400">{{ __('products.date_added') }}: {{ $product->created_at->format('M d, Y') }}</p>
                                         </div>
                                         <div class="text-right ml-4">
                                             <span class="text-3xl font-bold text-indigo-600">${{ number_format($product->price, 2) }}</span>
@@ -173,7 +173,7 @@
                                 </a>
                             @empty
                                 <div class="text-center py-12">
-                                    <p class="text-gray-500 text-lg">No products found matching your criteria.</p>
+                                    <p class="text-gray-500 text-lg">{{ __('products.no_products') }}</p>
                                 </div>
                             @endforelse
                         </div>
