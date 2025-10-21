@@ -13,12 +13,11 @@ class DatabaseManager extends Component
 
     public $tables = [];
     public $selectedTable = '';
-    public $tableData = [];
     public $columns = [];
     public $sqlQuery = '';
     public $queryResult = null;
     public $queryError = null;
-    public $activeTab = 'tables'; // tables, query, structure
+    public $activeTab = 'tables';
 
     public function mount()
     {
@@ -46,19 +45,9 @@ class DatabaseManager extends Component
     public function selectTable($table)
     {
         $this->selectedTable = $table;
-        $this->loadTableData();
         $this->loadTableStructure();
         $this->activeTab = 'browse';
-    }
-
-    public function loadTableData()
-    {
-        if ($this->selectedTable) {
-            $this->tableData = DB::table($this->selectedTable)->paginate(50);
-            $this->columns = $this->tableData->isNotEmpty()
-                ? array_keys((array)$this->tableData->items()[0])
-                : [];
-        }
+        $this->resetPage();
     }
 
     public function loadTableStructure()
@@ -99,14 +88,23 @@ class DatabaseManager extends Component
     public function setActiveTab($tab)
     {
         $this->activeTab = $tab;
-
-        if ($tab === 'browse' && $this->selectedTable) {
-            $this->loadTableData();
-        }
     }
 
     public function render()
     {
-        return view('livewire.database-manager')->layout('layouts.app');
+        $tableData = null;
+
+        if ($this->selectedTable && $this->activeTab === 'browse') {
+            $tableData = DB::table($this->selectedTable)->paginate(50);
+
+            // Update columns from data if available
+            if ($tableData->isNotEmpty()) {
+                $this->columns = array_keys((array)$tableData->items()[0]);
+            }
+        }
+
+        return view('livewire.database-manager', [
+            'tableData' => $tableData
+        ])->layout('layouts.app');
     }
 }
