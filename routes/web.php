@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/products', \App\Livewire\ProductManager::class)->name('products');
     Route::get('/products/{id}', \App\Livewire\ProductDetail::class)->name('products.show');
+
+    Route::get('/database', \App\Livewire\DatabaseManager::class)->name('database');
 });
 
 require __DIR__.'/auth.php';
