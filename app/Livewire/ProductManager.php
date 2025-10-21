@@ -19,13 +19,6 @@ class ProductManager extends Component
     public $sortDirection = 'asc';
     public $viewMode = 'grid'; // grid or list
 
-    protected $queryString = [
-        'search' => ['except' => ''],
-        'categoryFilter' => ['except' => ''],
-        'sortField' => ['except' => 'name'],
-        'sortDirection' => ['except' => 'asc'],
-    ];
-
     public function updatingSearch()
     {
         $this->resetPage();
