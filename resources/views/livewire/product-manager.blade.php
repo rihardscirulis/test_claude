@@ -1,38 +1,38 @@
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
         {{ __('products.products') }}
     </h2>
 </x-slot>
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-            <div class="p-6 bg-white border-b border-gray-200">
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
                 <!-- Header -->
                 <div class="mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800">{{ __('products.product_manager') }}</h2>
-                    <p class="text-gray-600 mt-1">{{ __('products.browse_filter') }}</p>
+                    <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200">{{ __('products.product_manager') }}</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mt-1">{{ __('products.browse_filter') }}</p>
                 </div>
 
                 <!-- Filters -->
-                <div class="bg-gray-50 p-4 rounded-lg mb-6">
+                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                         <!-- Search -->
                         <div>
-                            <label for="search" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.search') }}</label>
+                            <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ __('products.search') }}</label>
                             <input type="text"
                                    wire:model.live.debounce.300ms="search"
                                    id="search"
                                    placeholder="{{ __('products.search_placeholder') }}"
-                                   class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                   class="w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                         </div>
 
                         <!-- Category Filter -->
                         <div>
-                            <label for="category" class="block text-sm font-medium text-gray-700 mb-1">{{ __('products.category') }}</label>
+                            <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{{ __('products.category') }}</label>
                             <select wire:model.live="categoryFilter"
                                     id="category"
-                                    class="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                                    class="w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-600 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
                                 <option value="">{{ __('products.all_categories') }}</option>
                                 @foreach($categories as $category)
                                     <option value="{{ $category }}">{{ $this->getCategoryTranslation($category) }}</option>
