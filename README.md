@@ -1,66 +1,191 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel Product Manager
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A modern Laravel 11 application featuring authentication and a dynamic product management interface built with Livewire.
 
-## About Laravel
+## Features
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- **Authentication System**: Built with Laravel Breeze, including login, registration, password reset, and email verification
+- **Dynamic Product Manager**: A fully reactive Livewire component with:
+  - Real-time search across product names and descriptions
+  - Category filtering
+  - Price range filtering
+  - Stock status filtering
+  - Multi-field sorting (name, price, category, stock, date)
+  - Grid and List view modes
+  - Pagination
+- **Responsive Design**: Built with Tailwind CSS for a modern, mobile-friendly interface
+- **Sample Data**: Comes with 50 pre-seeded products across multiple categories
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Technologies Used
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **Laravel 11**: The latest version of the PHP framework
+- **Laravel Breeze**: For authentication scaffolding
+- **Livewire 3**: For reactive components without writing JavaScript
+- **Tailwind CSS**: For modern, utility-first styling
+- **SQLite**: Lightweight database (easily switchable to MySQL/PostgreSQL)
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisites
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+- PHP 8.2 or higher
+- Composer
+- Node.js and npm
+- SQLite (or MySQL/PostgreSQL if preferred)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Setup Instructions
 
-## Laravel Sponsors
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd test_claude
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-### Premium Partners
+3. **Install JavaScript dependencies**
+   ```bash
+   npm install
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+4. **Environment setup**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Contributing
+5. **Database setup**
+   ```bash
+   # Create SQLite database
+   touch database/database.sqlite
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+   # Run migrations
+   php artisan migrate
 
-## Code of Conduct
+   # Seed with sample products
+   php artisan db:seed --class=ProductSeeder
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. **Build assets**
+   ```bash
+   npm run build
+   # Or for development with hot reload:
+   npm run dev
+   ```
 
-## Security Vulnerabilities
+7. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8. **Access the application**
+   - Open your browser and visit: `http://localhost:8000`
+   - Register a new account or login
+   - Navigate to the Products page to see the dynamic interface in action
+
+## Usage
+
+### Product Manager Features
+
+Once logged in, navigate to the "Products" page to access the dynamic product manager:
+
+- **Search**: Type in the search box to filter products by name or description (updates in real-time)
+- **Category Filter**: Select a category from the dropdown to view products in that category
+- **Price Range**: Set minimum and maximum prices to filter products
+- **Stock Status**: Filter by in-stock or out-of-stock items
+- **Sorting**: Choose any field to sort by and toggle between ascending/descending
+- **View Modes**: Switch between grid view (cards) and list view (detailed rows)
+- **Clear Filters**: Reset all filters with one click
+
+All filtering and sorting happens instantly without page reloads, thanks to Livewire!
+
+## Project Structure
+
+```
+app/
+├── Livewire/
+│   └── ProductManager.php          # Main Livewire component
+├── Models/
+│   ├── Product.php                 # Product model
+│   └── User.php                    # User model
+database/
+├── factories/
+│   └── ProductFactory.php          # Factory for generating products
+├── migrations/
+│   └── *_create_products_table.php # Products table schema
+└── seeders/
+    └── ProductSeeder.php           # Seeds sample products
+resources/
+├── views/
+│   ├── livewire/
+│   │   └── product-manager.blade.php  # Product manager view
+│   ├── dashboard.blade.php            # Dashboard view
+│   └── layouts/
+│       └── navigation.blade.php       # Navigation menu
+routes/
+└── web.php                         # Application routes
+```
+
+## Database Schema
+
+### Products Table
+
+| Column      | Type       | Description                    |
+|-------------|------------|--------------------------------|
+| id          | bigint     | Primary key                    |
+| name        | string     | Product name                   |
+| description | text       | Product description (nullable) |
+| price       | decimal    | Product price                  |
+| category    | string     | Product category               |
+| stock       | integer    | Available stock quantity       |
+| is_active   | boolean    | Active status (default: true)  |
+| created_at  | timestamp  | Creation timestamp             |
+| updated_at  | timestamp  | Last update timestamp          |
+
+## Customization
+
+### Adding More Products
+
+You can add more products by running the seeder again or creating them manually:
+
+```bash
+# Add 50 more products
+php artisan db:seed --class=ProductSeeder
+
+# Or create specific products using tinker
+php artisan tinker
+>>> \App\Models\Product::factory()->create(['name' => 'Custom Product', 'price' => 99.99]);
+```
+
+### Changing Categories
+
+Categories are defined in the `ProductFactory`. To modify them, edit:
+`database/factories/ProductFactory.php`
+
+### Switching to MySQL/PostgreSQL
+
+1. Update `.env` file with your database credentials:
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=your_database
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
+
+2. Run migrations:
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Credits
+
+Built with Laravel, Livewire, and Tailwind CSS.
