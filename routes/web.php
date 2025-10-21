@@ -17,6 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/products', \App\Livewire\ProductManager::class)->name('products');
+    Route::get('/products/{id}', \App\Livewire\ProductDetail::class)->name('products.show');
 });
 
 require __DIR__.'/auth.php';

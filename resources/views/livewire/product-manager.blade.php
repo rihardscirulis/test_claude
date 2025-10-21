@@ -126,7 +126,7 @@
                         <!-- Grid View -->
                         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                             @forelse($products as $product)
-                                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                                <a href="{{ route('products.show', $product->id) }}" class="border rounded-lg p-4 hover:shadow-lg transition block cursor-pointer hover:border-indigo-300">
                                     <div class="mb-3">
                                         <h3 class="font-semibold text-lg text-gray-800 truncate">{{ $product->name }}</h3>
                                         <span class="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded mt-1">
@@ -140,7 +140,7 @@
                                             {{ $product->stock > 0 ? 'In Stock (' . $product->stock . ')' : 'Out of Stock' }}
                                         </span>
                                     </div>
-                                </div>
+                                </a>
                             @empty
                                 <div class="col-span-full text-center py-12">
                                     <p class="text-gray-500 text-lg">No products found matching your criteria.</p>
@@ -151,7 +151,7 @@
                         <!-- List View -->
                         <div class="space-y-4">
                             @forelse($products as $product)
-                                <div class="border rounded-lg p-4 hover:shadow-lg transition">
+                                <a href="{{ route('products.show', $product->id) }}" class="border rounded-lg p-4 hover:shadow-lg transition block cursor-pointer hover:border-indigo-300">
                                     <div class="flex justify-between items-start">
                                         <div class="flex-1">
                                             <div class="flex items-center gap-3 mb-2">
@@ -170,7 +170,7 @@
                                             <span class="text-3xl font-bold text-indigo-600">${{ number_format($product->price, 2) }}</span>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             @empty
                                 <div class="text-center py-12">
                                     <p class="text-gray-500 text-lg">No products found matching your criteria.</p>
