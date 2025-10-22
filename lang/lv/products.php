@@ -75,4 +75,28 @@ return [
     'dynamic_sorting' => 'Dinamiska kārtošana un lapošana',
     'price_filters' => 'Cenu diapazona un kategoriju filtri',
     'view_products_button' => 'Skatīt Produktus',
+
+    // Public Shop
+    'shop' => 'Veikals',
+    'home' => 'Sākums',
+    'login' => 'Pieteikties',
+    'browse_our_products' => 'Pārlūkojiet mūsu kvalitātes produktu kolekciju',
+    'no_products_found' => 'Produkti nav atrasti',
+    'try_different_filters' => 'Mēģiniet pielāgot filtrus vai meklēšanas nosacījumus',
+    'units_available' => 'vienības pieejamas',
+    'availability' => 'Pieejamība',
+    'contact_for_purchase' => 'Sazināties Par Pirkumu',
+    'view_in_admin' => 'Skatīt Administrācijā',
+
+    // Homepage
+    'welcome_to_our_store' => 'Laipni Lūdzam Mūsu Veikalā',
+    'discover_amazing_products' => 'Atklājiet lieliskus produktus par nepārspējamām cenām',
+    'shop_now' => 'Iepirkties Tagad',
+    'go_to_dashboard' => 'Uz Kontrolpaneli',
+    'quality_products' => 'Kvalitatīvi Produkti',
+    'quality_description' => 'Mēs piedāvājam tikai augstākās kvalitātes produktus, kas atbilst mūsu stingriem standartiem',
+    'fast_delivery' => 'Ātra Piegāde',
+    'fast_delivery_description' => 'Ātra un uzticama piegāde līdz jūsu durvīm',
+    'best_prices' => 'Labākās Cenas',
+    'best_prices_description' => 'Konkurētspējīgas cenas ar lielisku vērtību jūsu naudai',
 ];

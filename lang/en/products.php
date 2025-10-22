@@ -75,4 +75,28 @@ return [
     'dynamic_sorting' => 'Dynamic sorting and pagination',
     'price_filters' => 'Price range and category filters',
     'view_products_button' => 'View Products',
+
+    // Public Shop
+    'shop' => 'Shop',
+    'home' => 'Home',
+    'login' => 'Login',
+    'browse_our_products' => 'Browse our collection of quality products',
+    'no_products_found' => 'No products found',
+    'try_different_filters' => 'Try adjusting your filters or search terms',
+    'units_available' => 'units available',
+    'availability' => 'Availability',
+    'contact_for_purchase' => 'Contact for Purchase',
+    'view_in_admin' => 'View in Admin',
+
+    // Homepage
+    'welcome_to_our_store' => 'Welcome to Our Store',
+    'discover_amazing_products' => 'Discover amazing products at unbeatable prices',
+    'shop_now' => 'Shop Now',
+    'go_to_dashboard' => 'Go to Dashboard',
+    'quality_products' => 'Quality Products',
+    'quality_description' => 'We offer only the highest quality products that meet our strict standards',
+    'fast_delivery' => 'Fast Delivery',
+    'fast_delivery_description' => 'Quick and reliable shipping to your doorstep',
+    'best_prices' => 'Best Prices',
+    'best_prices_description' => 'Competitive pricing with great value for your money',
 ];
