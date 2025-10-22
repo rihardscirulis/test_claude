@@ -104,16 +104,26 @@
                     <a href="{{ route('shop.show', $product->id) }}" class="group">
                         <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-700 transform hover:-translate-y-2">
                             <!-- Product Image with Gradient -->
-                            <div class="relative h-64 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900 flex items-center justify-center overflow-hidden">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                                <svg class="w-24 h-24 text-indigo-300 dark:text-indigo-700 relative z-10 group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="relative h-64 bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-indigo-900 dark:via-purple-900 dark:to-pink-900 flex items-center justify-center overflow-hidden group-hover:bg-gradient-to-br group-hover:from-indigo-200 group-hover:via-purple-200 group-hover:to-pink-200 dark:group-hover:from-indigo-800 dark:group-hover:via-purple-800 dark:group-hover:to-pink-800 transition-all duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                                <!-- Decorative Circle -->
+                                <div class="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -mr-16 -mt-16"></div>
+                                <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+
+                                <svg class="w-28 h-28 text-indigo-400 dark:text-indigo-600 relative z-10 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 filter drop-shadow-xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
                                 </svg>
+
                                 <!-- Category Badge -->
                                 <div class="absolute top-4 left-4 z-20">
-                                    <span class="inline-block px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full shadow-lg">
+                                    <span class="inline-block px-4 py-2 text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
                                         {{ $this->getCategoryTranslation($product->category) }}
                                     </span>
+                                </div>
+
+                                <!-- Quick View Badge -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span class="text-white font-bold text-sm">Quick View</span>
                                 </div>
                             </div>
 
