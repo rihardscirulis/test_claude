@@ -1,0 +1,57 @@
+version: '3'
+services:
+    laravel.test:
+        build:
+            context: ./vendor/laravel/sail/runtimes/8.3
+            dockerfile: Dockerfile
+            args:
+                WWWGROUP: '${WWWGROUP}'
+        image: sail-8.3/app
+        extra_hosts:
+            - 'host.docker.internal:host-gateway'
+        ports:
+            - '${APP_PORT:-80}:80'
+            - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+        environment:
+            WWWUSER: '${WWWUSER}'
+            LARAVEL_SAIL: 1
+            XDEBUG_MODE: '${SAIL_XDEBUG_MODE:-off}'
+            XDEBUG_CONFIG: '${SAIL_XDEBUG_CONFIG:-client_host=host.docker.internal}'
+            IGNITION_LOCAL_SITES_PATH: '${PWD}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        depends_on:
+            - opensearch
+    opensearch:
+        image: opensearchproject/opensearch:latest
+        container_name: '${APP_NAME:-laravel}_opensearch'
+        environment:
+            - cluster.name=opensearch-cluster
+            - node.name=opensearch-node
+            - discovery.type=single-node
+            - bootstrap.memory_lock=true
+            - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"
+            - OPENSEARCH_INITIAL_ADMIN_PASSWORD=${OPENSEARCH_PASSWORD:-Admin@123}
+            - plugins.security.disabled=true
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+            nofile:
+                soft: 65536
+                hard: 65536
+        volumes:
+            - 'sail-opensearch:/usr/share/opensearch/data'
+        ports:
+            - '${OPENSEARCH_PORT:-9200}:9200'
+            - '9600:9600'
+        networks:
+            - sail
+networks:
+    sail:
+        driver: bridge
+volumes:
+    sail-opensearch:
+        driver: local

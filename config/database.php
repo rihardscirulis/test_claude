@@ -112,6 +112,19 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        'opensearch' => [
+            'driver' => 'opensearch',
+            'host' => env('OPENSEARCH_HOST', 'localhost'),
+            'port' => env('OPENSEARCH_PORT', 9200),
+            'scheme' => env('OPENSEARCH_SCHEME', 'http'),
+            'user' => env('OPENSEARCH_USER'),
+            'password' => env('OPENSEARCH_PASSWORD'),
+            'index_prefix' => env('OPENSEARCH_INDEX_PREFIX', ''),
+            'options' => [
+                'ssl_verification' => env('OPENSEARCH_SSL_VERIFICATION', false),
+            ],
+        ],
+
     ],
 
     /*
